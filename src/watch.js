@@ -7,7 +7,7 @@
  * IE 9+, FF 4+, SF 5+, WebKit, CH 7+, OP 12+, BESEN, Rhino 1.7+
  *
  * FORK:
- * https://github.com/melanke/Watch.JS
+ * https://github.com/wburningham/Watch.JS
  */
 
 "use strict";
