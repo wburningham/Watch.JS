@@ -182,7 +182,7 @@
             }
         } else {
             for (var prop2 in obj) { //for each attribute if obj is an object
-                if (hasOwnProperty.call(obj, prop2) && obj[prop2]) {
+                if (Object.prototype.hasOwnProperty.call(obj, prop2) && obj[prop2]) {
                     props.push(prop2); //put in the props
                 }
             }
@@ -195,7 +195,7 @@
     var watchMany = function(obj, props, watcher, level) {
 
         for (var prop in props) { //watch each attribute of "props" if is an object
-            if (hasOwnProperty.call(props, prop) && props[prop]) {
+            if (Object.prototype.hasOwnProperty.call(props, prop) && props[prop]) {
                 watchOne(obj, props[prop], watcher, level);
             }
         }
@@ -246,7 +246,7 @@
             }
         } else {
             for (var prop2 in obj) { //for each attribute if obj is an object
-                if (hasOwnProperty.call(obj, prop2) && obj[prop2]) {
+                if (Object.prototype.hasOwnProperty.call(obj, prop2) && obj[prop2]) {
                     props.push(prop2); //put in the props
                 }
             }
@@ -259,7 +259,7 @@
     var unwatchMany = function(obj, props, watcher) {
 
         for (var prop2 in props) { //watch each attribute of "props" if is an object
-            if (hasOwnProperty.call(props, prop2) && props[prop2]) {
+            if (Object.prototype.hasOwnProperty.call(props, prop2) && props[prop2]) {
                 unwatchOne(obj, props[prop2], watcher);
             }
         }
@@ -315,7 +315,7 @@
         callWatchers = function(obj, prop, action, newval, oldval) {
 
             for (var wr in obj.watchers[prop]) {
-                if (hasOwnProperty.call(obj.watchers[prop], wr) && obj.watchers[prop][wr]) {
+                if (Object.prototype.hasOwnProperty.call(obj.watchers[prop], wr) && obj.watchers[prop][wr]) {
                     if (isInt(wr)) {
                         obj.watchers[prop][wr].call(obj, prop, action, newval, oldval);
                     }
@@ -351,7 +351,7 @@
 
         unwatchOne = function(obj, prop, watcher) {
             for (var i in obj.watchers[prop]) {
-                if (hasOwnProperty.call(obj.watchers[prop], i) && obj.watchers[prop][i]) {
+                if (Object.prototype.hasOwnProperty.call(obj.watchers[prop], i) && obj.watchers[prop][i]) {
                     var w = obj.watchers[prop][i];
 
                     if (w == watcher) {
@@ -382,7 +382,7 @@
         unwatchOne = function(obj, prop, watcher) {
 
             for (var i in subjects) {
-                if (hasOwnProperty.call(subjects, i) && subjects[i]) {
+                if (Object.prototype.hasOwnProperty.call(subjects, i) && subjects[i]) {
                     var subj = subjects[i];
 
                     if (subj.obj == obj && subj.prop == prop && subj.watcher == watcher) {
@@ -397,7 +397,7 @@
         callWatchers = function(obj, prop, action, value) {
 
             for (var i in subjects) {
-                if (hasOwnProperty.call(subjects, i) && subjects[i]) {
+                if (Object.prototype.hasOwnProperty.call(subjects, i) && subjects[i]) {
                     var subj = subjects[i];
 
                     if (subj.obj == obj && subj.prop == prop) {
@@ -412,7 +412,11 @@
         var loop = function() {
 
             for (var i in subjects) {
-                if (hasOwnProperty.call(subjects, i) && subjects[i]) {
+                console.log('watch');
+                console.log(Object);
+                console.log(Object.prototype);
+                console.log(Object.prototype.hasOwnProperty);
+                if (Object.prototype.hasOwnProperty.call(subjects, i) && subjects[i]) {
 
                     var subj = subjects[i];
                     var newSer = JSON.stringify(subj.obj[subj.prop]);
