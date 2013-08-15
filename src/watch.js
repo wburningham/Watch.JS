@@ -412,10 +412,6 @@
         var loop = function() {
 
             for (var i in subjects) {
-                console.log('watch');
-                console.log(Object);
-                console.log(Object.prototype);
-                console.log(Object.prototype.hasOwnProperty);
                 if (Object.prototype.hasOwnProperty.call(subjects, i) && subjects[i]) {
 
                     var subj = subjects[i];
